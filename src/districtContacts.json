@@ -1,0 +1,310 @@
+[
+  {
+    "district": "Ahmedabad",
+    "association": "Para Sports Association Ahmedabad District",
+    "address": "Think Positive - 75/1782, Gitanjali House, Meghaninagar, Near Police Station, Ahmedabad-380016",
+    "contacts": [
+      { "name": "Shri Hasmukhbhai Nai", "phone": "9574150744" },
+      { "name": "Shri Vikram Parmar", "phone": "9727000720" }
+    ],
+    "email": "thinkpositiveb4u@gmail.com"
+  },
+  {
+    "district": "Amreli",
+    "association": "Para Sports Association Amreli District",
+    "address": "Apang Manav Seva Sangh, Near Khodiyar Chowk, Amreli",
+    "contacts": [
+      { "name": "Shri Bipin Trivedi", "phone": "9426852843" }
+    ],
+    "email": "bipintrivedi9@gmail.com"
+  },
+  {
+    "district": "Anand",
+    "association": "Para Sports Association Anand District",
+    "address": "3-Apeksha Prime, Sanskar Park, Near Vardhman Road, G-ID-Anand-388001",
+    "contacts": [
+      { "name": "Shri Vinod Patel", "phone": "9879590535" }
+    ],
+    "email": "vinodpatel101@yahoo.com"
+  },
+  {
+    "district": "Aravalli",
+    "association": "Para Sports Association Aravalli District",
+    "address": "Shri C.N. Baxi Sankul, Nana Gam, Taluka-Bodeli, Aravalli-391155",
+    "contacts": [
+      { "name": "Shri Mahesh Desai", "phone": "9876543211" }
+    ],
+    "email": "aravallipara@gmail.com"
+  },
+  {
+    "district": "Banaskantha",
+    "association": "Para Sports Association Banaskantha District",
+    "address": "Rasikbal Yuva Foundation, Ambetha, Palanpur, Banaskantha",
+    "contacts": [
+      { "name": "Shri Jignesh Shah", "phone": "9876543212" }
+    ],
+    "email": "banaskanthapara@gmail.com"
+  },
+  {
+    "district": "Bharuch",
+    "association": "Para Sports Association Bharuch District",
+    "address": "Rudviyang Kelavni Trust Bharuch, Near Pandit Deendayal Mandir, Machhliad, Bharuch",
+    "contacts": [
+      { "name": "Shri Naresh Mehta", "phone": "9876543213" }
+    ],
+    "email": "bharuchpara@gmail.com"
+  },
+  {
+    "district": "Bhavnagar",
+    "association": "Para Sports Association Bhavnagar District",
+    "address": "Shri Apang Parivar Kalyan Kendra, Swastik Society, Ambalwadi, Bhavnagar",
+    "contacts": [
+      { "name": "Shri Naresh Dave", "phone": "9428591019" },
+      { "name": "Smt. Ilaben Dave", "phone": "9909007712" }
+    ],
+    "email": "parattbhavnagar@gmail.com"
+  },
+  {
+    "district": "Botad",
+    "association": "Para Sports Association Botad District",
+    "address": "Viklang Punarvasan Trust, Gadhda Road, Tirthnagar, Botad-364710",
+    "contacts": [
+      { "name": "Shri Manishbhai R. Solanki", "phone": "9909169107" }
+    ],
+    "email": "solankimanu97@gmail.com"
+  },
+  {
+    "district": "Chhota Udaipur",
+    "association": "Para Sports Association Chhota Udaipur District",
+    "address": "Shri C.N. Baxi Sankul, Nana Gam, Taluka-Bodeli, Chhota Udaipur-391155",
+    "contacts": [
+      { "name": "Shri Ajit Dodiya", "phone": "7016835058" },
+      { "name": "Shri Yashvantsinh Mori", "phone": "9904750355" }
+    ],
+    "email": "ajitdodiya1993@gmail.com"
+  },
+  {
+    "district": "Dahod",
+    "association": "Para Sports Association Dahod District",
+    "address": "Blind Kelavni Council, Mandvi Road, Pancham Kheda, Near Manav Mandir, Dahod-389151",
+    "contacts": [
+      { "name": "Shri Rameshbhai Parmar", "phone": "9726757809" }
+    ],
+    "email": "bwcdahod@gmail.com"
+  },
+  {
+    "district": "Dang",
+    "association": "Para Sports Association Dang District",
+    "address": "National Association for Blind, Civil Hospital Road, Navsari-396001",
+    "contacts": [
+      { "name": "Shri Vijay Gamit", "phone": "9876543218" }
+    ],
+    "email": "dangpara@gmail.com"
+  },
+  {
+    "district": "Devbhoomi Dwarka",
+    "association": "Para Sports Association Devbhoomi Dwarka District",
+    "address": "Ashadeep Viklang Kendra, Jamnagar Road, Dwarka",
+    "contacts": [
+      { "name": "Shri Hitesh Oza", "phone": "9876543219" }
+    ],
+    "email": "dwarkapara@gmail.com"
+  },
+  {
+    "district": "Gandhinagar",
+    "association": "Para Sports Association Gandhinagar District",
+    "address": "Nishulk Rudviyang Charitable Trust, Itadia, Mehsana Road, Gandhinagar",
+    "contacts": [
+      { "name": "Shri Sanjay Trivedi", "phone": "9876543220" }
+    ],
+    "email": "gandhinagarpara@gmail.com"
+  },
+  {
+    "district": "Gir Somnath",
+    "association": "Para Sports Association Gir Somnath District",
+    "address": "Kheda, Post-Solshi, Taluka-Sutrapada, Gir Somnath-362275",
+    "contacts": [
+      { "name": "Shri Nareshbhai Gohil", "phone": "9228892717" }
+    ],
+    "email": "nareshgohilb@yahoo.com"
+  },
+  {
+    "district": "Jamnagar",
+    "association": "Para Sports Association Jamnagar District",
+    "address": "Ashadeep Viklang Kalyan Kari Trust, Alkapuri Mansion, Jamnagar-361005",
+    "contacts": [
+      { "name": "Shri N.E. Panchal", "phone": "9427346056" },
+      { "name": "Shri Amit Rathod", "phone": "9624624081" }
+    ],
+    "email": "rathavaamit@gmail.com"
+  },
+  {
+    "district": "Junagadh",
+    "association": "Para Sports Association Junagadh District",
+    "address": "Shri Sampark Foundation, Near Junagadh Gate, Junagadh",
+    "contacts": [
+      { "name": "Shri Jayesh Bhatt", "phone": "9876543223" }
+    ],
+    "email": "junagadhpara@gmail.com"
+  },
+  {
+    "district": "Kheda",
+    "association": "Para Sports Association Kheda District",
+    "address": "Society for Rehabilitation of Handicapped, Nadiad",
+    "contacts": [
+      { "name": "Shri Nilesh Amin", "phone": "9876543224" }
+    ],
+    "email": "khedapara@gmail.com"
+  },
+  {
+    "district": "Kutch",
+    "association": "Para Sports Association Kutch District",
+    "address": "Nirman Adivasi Mandal, Viklang Vidhya Niketan, Near Kutch Darbar, Bhuj-370020",
+    "contacts": [
+      { "name": "Shri Maganbhai Patel", "phone": "8734985152" },
+      { "name": "Smt. Kantaben Patel", "phone": "8490940736" }
+    ],
+    "email": "maganpatel2901@gmail.com"
+  },
+  {
+    "district": "Mahisagar",
+    "association": "Para Sports Association Mahisagar District",
+    "address": "District Welfare Office, Lunawada",
+    "contacts": [
+      { "name": "Shri Babubhai Parmar", "phone": "9428782693" }
+    ],
+    "email": "mahisagarpara@gmail.com"
+  },
+  {
+    "district": "Mehsana",
+    "association": "Para Sports Association Mehsana District",
+    "address": "Uttam Gujarat Viklang Kalyan Sangh, Visnagar-Himmatnagar Highway, Mehsana-384315",
+    "contacts": [
+      { "name": "Smt. Snehlataben Patel", "phone": "9825842013" },
+      { "name": "Shri Ashokbhai Patel", "phone": "9727728909" }
+    ],
+    "email": "info@ugvks.org"
+  },
+  {
+    "district": "Morbi",
+    "association": "Para Sports Association Morbi District",
+    "address": "Technical Training Center for Handicapped, Near Sonagadh Post Office, Morbi-394670",
+    "contacts": [
+      { "name": "Shri Samirbhai", "phone": "8200298806" }
+    ],
+    "email": "handicapped.songadh_iti@yahoo.in"
+  },
+  {
+    "district": "Narmada",
+    "association": "Para Sports Association Narmada District",
+    "address": "Sahayog Viklang Trust, Tilakwada",
+    "contacts": [
+      { "name": "Shri Vinod Babhaniya", "phone": "7990257513" }
+    ],
+    "email": "narmadapara@gmail.com"
+  },
+  {
+    "district": "Navsari",
+    "association": "Para Sports Association Navsari District",
+    "address": "District Welfare Office, Navsari",
+    "contacts": [
+      { "name": "Shri Apleshbhai Patel", "phone": "9712023245" }
+    ],
+    "email": "dsdo-navsari@gujarat.gov.in"
+  },
+  {
+    "district": "Panchmahal",
+    "association": "Para Sports Association Panchmahal District",
+    "address": "District Welfare Office, Godhra",
+    "contacts": [
+      { "name": "Shri Arvindbhai", "phone": "9978787455" }
+    ],
+    "email": "panchmahalpara@gmail.com"
+  },
+  {
+    "district": "Patan",
+    "association": "Para Sports Association Patan District",
+    "address": "Shri Bhavaniya Pragnachakshu Gruh, Patan",
+    "contacts": [
+      { "name": "Shri Babulji Kankrecha", "phone": "9409620659" }
+    ],
+    "email": "bmkankrecha@gmail.com"
+  },
+  {
+    "district": "Porbandar",
+    "association": "Para Sports Association Porbandar District",
+    "address": "Shri Bhagwatiya Prajna Chakshu Gruh, Wagheshwari Plot, Porbandar-360575",
+    "contacts": [
+      { "name": "Shri Kamleshbhai Khokhani", "phone": "9825674150" },
+      { "name": "Shri Maulik Khokhani", "phone": "823871712" }
+    ],
+    "email": "bpg_pbr@rediffmail.com"
+  },
+  {
+    "district": "Rajkot",
+    "association": "Para Sports Association Rajkot District",
+    "address": "Shri Apang Parivar Vikas Kendra, Race Course Road, Rajkot",
+    "contacts": [
+      { "name": "Shri Dinesh Rajyaguru", "phone": "9876543234" }
+    ],
+    "email": "rajkotpara@gmail.com"
+  },
+  {
+    "district": "Sabarkantha",
+    "association": "Para Sports Association Sabarkantha District",
+    "address": "Shri Yuva Viklang Sangathan Mandal, Sachodra, Sabarkantha",
+    "contacts": [
+      { "name": "Shri Atulbhai H. Parmar", "phone": "9429235541" }
+    ],
+    "email": "atulparmar7@yahoo.com"
+  },
+  {
+    "district": "Surat",
+    "association": "Para Sports Association Surat District",
+    "address": "Society for Rehabilitation of Handicapped, 1003, Nakshatra Apartment, Pal Canal Road, Surat-395009",
+    "contacts": [
+      { "name": "Shri Maheshchandra Shah", "phone": "9328823838" },
+      { "name": "Shri Anand Shah", "phone": "9327723838" }
+    ],
+    "email": "thesphsurat@gmail.com"
+  },
+  {
+    "district": "Surendranagar",
+    "association": "Para Sports Association Surendranagar District",
+    "address": "Ashirwad Viklang Trust, Sayla, National Highway, Surendranagar-363430",
+    "contacts": [
+      { "name": "Shri Arvind S. Jadeja", "phone": "9825327351" },
+      { "name": "Shri Sursinh Rathod", "phone": "9723436501" }
+    ],
+    "email": "jadavatd@yahoo.com"
+  },
+  {
+    "district": "Tapi",
+    "association": "Para Sports Association Tapi District",
+    "address": "District Welfare Office, Vyara",
+    "contacts": [
+      { "name": "Shri Sanjay Gamit", "phone": "9876543239" }
+    ],
+    "email": "tapipara@gmail.com"
+  },
+  {
+    "district": "Vadodara",
+    "association": "Para Sports Association Vadodara District",
+    "address": "Society for Rehabilitation of Handicapped, E.M.E. Road, Vadodara-390002",
+    "contacts": [
+      { "name": "Shri Mohanbhai Patel", "phone": "9825825698" },
+      { "name": "Shri Rakeshbhai Modi", "phone": "9925147753" }
+    ],
+    "email": "sphbaroda1972@gmail.com"
+  },
+  {
+    "district": "Valsad",
+    "association": "Para Sports Association Valsad District",
+    "address": "National Association for Blind, Civil Hospital Road, Valsad-396001",
+    "contacts": [
+      { "name": "Shri Bipinbhai Tandel", "phone": "9904027732" },
+      { "name": "Shri Sandipbhai", "phone": "8238307674" }
+    ],
+    "email": "nabvalsad@gmail.com"
+  }
+]

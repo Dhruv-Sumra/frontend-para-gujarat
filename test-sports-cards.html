@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Sports Cards</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8fafc;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .sports-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .sport-card {
+            position: relative;
+            height: 200px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            transition: transform 0.2s;
+        }
+        
+        .sport-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .sport-card .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+        }
+        
+        .sport-card .content {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+        
+        .sport-card .icon-container {
+            width: 64px;
+            height: 64px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .sport-card .icon-container img {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+        }
+        
+        .sport-card .fallback-icon {
+            font-size: 24px;
+        }
+        
+        .sport-card h3 {
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 0;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .athletics { background: linear-gradient(135deg, #667eea, #667eea); }
+        .badminton { background: linear-gradient(135deg, #f093fb, #f093fb); }
+        .powerlifting { background: linear-gradient(135deg, #4facfe, #4facfe); }
+        .shooting { background: linear-gradient(135deg, #43e97b, #43e97b); }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center; color: #1E3A8A; margin-bottom: 40px;">Test Sports Cards</h1>
+    
+    <div class="sports-grid">
+        <div class="sport-card athletics">
+            <div class="overlay"></div>
+            <div class="content">
+                <div class="icon-container">
+                    <img src="/icons/athlet.png" alt="Athletics" onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'fallback-icon\'>🏃</div>';">
+                </div>
+                <h3>Para Athletics</h3>
+            </div>
+        </div>
+        
+        <div class="sport-card badminton">
+            <div class="overlay"></div>
+            <div class="content">
+                <div class="icon-container">
+                    <img src="/icons/badminton.png" alt="Badminton" onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'fallback-icon\'>🏸</div>';">
+                </div>
+                <h3>Para Badminton</h3>
+            </div>
+        </div>
+        
+        <div class="sport-card powerlifting">
+            <div class="overlay"></div>
+            <div class="content">
+                <div class="icon-container">
+                    <img src="/icons/powerlifting.png" alt="Powerlifting" onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'fallback-icon\'>🏋️</div>';">
+                </div>
+                <h3>Para Powerlifting</h3>
+            </div>
+        </div>
+        
+        <div class="sport-card shooting">
+            <div class="overlay"></div>
+            <div class="content">
+                <div class="icon-container">
+                    <img src="/icons/shooting.png" alt="Shooting" onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'fallback-icon\'>🎯</div>';">
+                </div>
+                <h3>Para Shooting</h3>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Test to see if background colors are working
+        console.log('Testing sports cards background colors...');
+        const cards = document.querySelectorAll('.sport-card');
+        cards.forEach((card, index) => {
+            const computedStyle = window.getComputedStyle(card);
+            console.log(`Card ${index + 1} background:`, computedStyle.background);
+        });
+    </script>
+</body>
+</html>
