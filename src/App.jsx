@@ -90,6 +90,7 @@ export default function App() {
               <Route path="/idcard" element={<IdCardSearch />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/donate" element={<Donate />} />
+              <Route path="*" element={<Home />} />
             </Routes>
           </Suspense>
         </ErrorBoundary>

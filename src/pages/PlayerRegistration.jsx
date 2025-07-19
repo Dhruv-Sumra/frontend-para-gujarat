@@ -138,7 +138,9 @@ const PlayerRegistration = () => {
       formData.append('address.country', data.address?.country || '');
       // Sports
       formData.append('primarySport', data.primarySport || '');
-      formData.append('secondarySport', data.secondarySport || '');
+      if (data.secondarySport && data.secondarySport.trim() !== '') {
+        formData.append('secondarySport', data.secondarySport);
+      }
       formData.append('experienceLevel', data.experienceLevel || '');
       formData.append('yearsOfExperience', data.yearsOfExperience || '');
       formData.append('coachName', data.coachName || '');
