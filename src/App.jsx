@@ -1,5 +1,5 @@
 import React, { Suspense, lazy } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import PSAGFooter from "./components/PSAGFooter";
 import Donate from './pages/Donate';
@@ -56,10 +56,20 @@ function Placeholder({ title }) {
   );
 }
 
+// ScrollToTop component
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
+
 export default function App() {
   return (
     <>
       <Router>
+        <ScrollToTop />
         <Navbar />
         <ErrorBoundary>
           <Suspense fallback={<div className="min-h-screen flex items-center justify-center text-2xl text-[var(--primary)]">Loading...</div>}>
