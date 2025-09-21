@@ -21,7 +21,7 @@ const translations = {
     news: 'News',
     gallery: 'Gallery',
     contactUs: 'Contact Us',
-    registerPlayer: 'Register Player',
+    registerPlayer: 'Player Registration',
     donate: 'Donate',
     donateNow: 'Donate Now',
     
