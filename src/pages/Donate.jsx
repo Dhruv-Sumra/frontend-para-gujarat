@@ -82,8 +82,8 @@ export default function Donate() {
             <div className="flex items-center justify-center gap-6">
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-[var(--primary)]" />
-                <a href="mailto:gujaratparasports@gmail.com" className="text-[var(--primary)] hover:underline">
-                  gujaratparasports@gmail.com
+                <a href="mailto:psaofgujarat@gmail.com" className="text-[var(--primary)] hover:underline">
+                  psaofgujarat@gmail.com
                 </a>
               </div>
               <div className="flex items-center gap-2">

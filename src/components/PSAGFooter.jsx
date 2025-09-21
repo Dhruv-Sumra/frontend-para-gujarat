@@ -57,7 +57,7 @@ const PSAGFooter = () => {
             <address className="not-italic space-y-0.5 text-xs sm:text-base w-full">
               <div className="flex items-center gap-2 justify-center md:justify-start">
                 <Mail className="text-[#FF9933] w-4 h-4 sm:w-6 sm:h-6" />
-                <a href="mailto:gujaratparasports@gmail.com" className="hover:underline">gujaratparasports@gmail.com</a>
+                <a href="mailto:psaofgujarat@gmail.com" className="hover:underline">psaofgujarat@gmail.com</a>
               </div>
             </address>
           </div>

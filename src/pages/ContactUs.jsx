@@ -287,8 +287,8 @@ export default function ContactUs() {
               <div className="space-y-4">
                 <div className="bg-gray-50 rounded-lg p-4">
                   <h4 className="font-semibold text-gray-900 mb-2">General Inquiries</h4>
-                  <a href="mailto:gujaratparasports@gmail.com" className="hover:underline flex items-center gap-2" style={{ color: 'var(--primary)' }}>
-                    gujaratparasports@gmail.com
+                  <a href="mailto:psaofgujarat@gmail.com" className="hover:underline flex items-center gap-2" style={{ color: 'var(--primary)' }}>
+                    psaofgujarat@gmail.com
                     <ExternalLink className="w-4 h-4" />
                   </a>
                   <p className="text-sm text-gray-600 mt-1">For general questions and information</p>

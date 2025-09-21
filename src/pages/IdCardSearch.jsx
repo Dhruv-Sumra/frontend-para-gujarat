@@ -320,7 +320,7 @@ const IdCardSearch = () => {
           <div className="mt-4 p-3 bg-blue-100 rounded-lg">
             <p className="text-blue-800 text-sm">
               <strong>Note:</strong> If you don't have your Player ID, please contact your district association or email us at{' '}
-              <a href="mailto:psaofgujarat@gmail.com" className="underline">psaofgujarat@gmail.com</a>
+              <a href="mailto:gujararparasports@gmail.com" className="underline">psaofgujarat@gmail.com</a>
             </p>
           </div>
         </div>
