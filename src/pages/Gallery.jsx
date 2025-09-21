@@ -6,7 +6,10 @@ export default function Gallery() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  const [imageLinks, setImageLinks] = useState(`https://i.postimg.cc/SQLFnwC9/front.jpg
+
+  // Cleaned and optimized image URLs list (use your own hosted images or reduce dimension URLs if available)
+  const imageLinksString = `
+https://i.postimg.cc/SQLFnwC9/front.jpg
 https://i.postimg.cc/TYR8gCJ4/front2.jpg
 https://i.postimg.cc/y8dwrx5h/front3.webp
 https://i.postimg.cc/L6vcTLy6/image005.jpg
@@ -78,38 +81,60 @@ https://i.postimg.cc/gjhv0Vny/Whats-App-Image-2025-06-25-at-3-33-27-PM.jpg
 https://i.postimg.cc/4Nz6k1Cs/Whats-App-Image-2025-07-04-at-9-26-21-PM.jpg
 https://i.postimg.cc/Yqc6sssd/Whats-App-Image-2025-07-08-at-3-08-32-PM.jpg
 https://i.postimg.cc/3x12WJJq/Whats-App-Image-2025-07-08-at-3-08-33-PM.jpg
-https://i.postimg.cc/9QCGWqVT/Whats-App-Image-2025-07-11-at-4-16-55-PM.jpg`);
-  const links = imageLinks.split('\n').map(link => link.trim()).filter(Boolean);
+https://i.postimg.cc/9QCGWqVT/Whats-App-Image-2025-07-11-at-4-16-55-PM.jpg
+  `;
+
+  const links = imageLinksString.split('\n').map(link => link.trim()).filter(Boolean);
+
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [photoIndex, setPhotoIndex] = useState(0);
+  const [loadedSet, setLoadedSet] = useState(new Set()); // track loaded images for opacity control
+
+  // On image load handler to show image only after fully loaded
+  const handleImageLoad = (idx) => {
+    setLoadedSet(prev => new Set(prev).add(idx));
+  };
+
   return (
-    <main className="container mx-auto px-4 py-12 bg-[var(--bg)]">
-      <h1 className="text-4xl font-bold text-[var(--primary)] mb-6">Gallery</h1>
-      {/* Paste Image Links Section */}
-      <section className="mb-8">
-       
+    <main className="container mx-auto px-4 py-12 bg-[var(--bg)] min-h-screen">
+      <h1 className="text-4xl font-extrabold text-center text-[var(--primary)] mb-10 tracking-tight">Gallery</h1>
+
+      <section>
         {links.length > 0 && (
           <>
-            <div className="columns-2 sm:columns-3 md:columns-4 gap-4 space-y-4">
+            <div className="gallery-grid">
               {links.map((link, idx) => (
                 <img
                   key={idx}
                   src={link}
-                  alt={`Gallery ${idx + 1}`}
-                  className="w-full mb-4 rounded shadow object-cover break-inside-avoid cursor-pointer"
-                  onClick={() => { setPhotoIndex(idx); setLightboxOpen(true); }}
+                  alt={`Gallery image ${idx + 1}`}
+                  loading="lazy"
+                  className={`gallery-image transition-opacity duration-700 ease-in-out ${
+                    loadedSet.has(idx) ? 'opacity-100' : 'opacity-0'
+                  }`}
+                  onLoad={() => handleImageLoad(idx)}
+                  style={{
+                    background: 'linear-gradient(90deg, #eee 25%, #ddd 50%, #eee 75%)',
+                    backgroundSize: '200% 100%',
+                    animation: 'shimmer 1.5s infinite',
+                  }}
+                  onClick={() => {
+                    setPhotoIndex(idx);
+                    setLightboxOpen(true);
+                  }}
                 />
               ))}
             </div>
+
             {lightboxOpen && (
-              <Suspense fallback={<div>Loading gallery...</div>}>
+              <Suspense fallback={<div className="loading-lightbox">Loading gallery...</div>}>
                 <Lightbox
                   open={lightboxOpen}
                   close={() => setLightboxOpen(false)}
                   index={photoIndex}
                   slides={links.map(src => ({ src }))}
                   on={{
-                    view: ({ index }) => setPhotoIndex(index)
+                    view: ({ index }) => setPhotoIndex(index),
                   }}
                 />
               </Suspense>
@@ -117,7 +142,59 @@ https://i.postimg.cc/9QCGWqVT/Whats-App-Image-2025-07-11-at-4-16-55-PM.jpg`);
           </>
         )}
       </section>
-    
+
+      <style jsx>{`
+        .gallery-grid {
+          column-count: 2;
+          column-gap: 1rem;
+        }
+        @media (min-width: 640px) {
+          .gallery-grid {
+            column-count: 3;
+          }
+        }
+        @media (min-width: 768px) {
+          .gallery-grid {
+            column-count: 4;
+          }
+        }
+        .gallery-image {
+          width: 100%;
+          margin-bottom: 1rem;
+          break-inside: avoid;
+          border: 3px solid var(--primary);
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          filter: drop-shadow(2px 2px 2px rgb(0 0 0 / 0.15));
+          cursor: pointer;
+          transition:
+            border-color 0.3s ease,
+            box-shadow 0.3s ease,
+            filter 0.3s ease,
+            transform 0.3s ease,
+            opacity 0.7s ease;
+        }
+        .gallery-image:hover {
+          border-color: var(--accent);
+          box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+          filter: drop-shadow(2px 2px 8px rgb(0 0 0 / 0.3));
+          transform: scale(1.05);
+        }
+        .loading-lightbox {
+          color: var(--primary);
+          font-weight: 600;
+          font-size: 1.25rem;
+          text-align: center;
+          padding: 2rem;
+        }
+        @keyframes shimmer {
+          0% {
+            background-position: 200% 0;
+          }
+          100% {
+            background-position: -200% 0;
+          }
+        }
+      `}</style>
     </main>
   );
-} 
+}

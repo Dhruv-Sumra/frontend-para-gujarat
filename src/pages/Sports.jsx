@@ -35,8 +35,6 @@ const paraSports = [
   { name: 'Para Sitting Volleyball', icon: 'sittingVollyball.png', bgImage: 'https://i.postimg.cc/Kvg7BZwY/volleyball.jpg' },
 ];
 
-
-
 const classifications = [
   {
     group: 'Visual Impairment',
@@ -170,20 +168,18 @@ const competitionLevels = [
   },
 ];
 
-
-
 export default function Sports() {
   const [open, setOpen] = useState(null);
   return (
     <main className="min-h-screen bg-[var(--bg)]">
       {/* All Para Sports Grid */}
-      <motion.section 
-        className="max-w-7xl mx-auto px-4 py-12"
+      <motion.section
+        className="max-w-7xl mx-auto px-2 py-12"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <motion.h1 
+        <motion.h1
           className="text-3xl md:text-4xl font-extrabold mb-8 text-center tracking-tight text-[var(--primary)]"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -191,8 +187,8 @@ export default function Sports() {
         >
           All Para Sports
         </motion.h1>
-        
-        <motion.p 
+
+        <motion.p
           className="text-lg text-[var(--text)] text-center mb-12 max-w-3xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -200,7 +196,7 @@ export default function Sports() {
         >
           Discover the diverse range of para sports available in Gujarat. Each sport is designed to accommodate athletes with different abilities, promoting inclusion and excellence in sports.
         </motion.p>
-        
+
         {/* Sports Cards Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {paraSports.map((sport, idx) => (
@@ -210,41 +206,42 @@ export default function Sports() {
               initial={{ opacity: 0, y: 50, scale: 0.9 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
-              whileHover={{ 
+              whileHover={{
                 scale: 1.05,
-                transition: { duration: 0.2 }
+                transition: { duration: 0.2 },
               }}
             >
-              {/* Background Image */}
-              <div 
-                className="absolute inset-0 bg-cover bg-center bg-no-repeat group-hover:scale-110 transition-transform duration-300"
-                style={{ 
-                  backgroundImage: `url(${sport.bgImage})`,
-                  // backgroundColor: '#667eea' // Fallback color
+              {/* Image with lazy loading */}
+              <img
+                src={sport.bgImage}
+                alt={`${sport.name} background`}
+                loading="lazy"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                onError={(e) => {
+                  e.currentTarget.onerror = null;
+                  e.currentTarget.src = '/fallback-image.png'; // your local fallback image or placeholder
                 }}
               />
-              
               {/* Dark Overlay */}
               <div className="absolute inset-0 bg-black opacity-40 transition-all duration-300" />
-              
               {/* Content */}
               <div className="relative z-10 flex flex-col items-center justify-center h-full p-4">
                 {/* Icon */}
                 <div className="mb-3 p-3 bg-white bg-opacity-95 rounded-full shadow-lg flex items-center justify-center min-w-[60px] min-h-[60px] group-hover:scale-110 transition-transform duration-300">
-                  <img 
-                    src={`/icons/${sport.icon}`} 
-                    alt={`${sport.name} icon`} 
+                  <img
+                    src={`/icons/${sport.icon}`}
+                    alt={`${sport.name} icon`}
                     className="w-10 h-10 text-orange-500 object-contain"
                     onError={(e) => {
-                      e.target.style.display = 'none';
+                      e.currentTarget.style.display = 'none';
                       const fallback = document.createElement('div');
                       fallback.innerHTML = '🏅';
                       fallback.className = 'text-2xl';
-                      e.target.parentNode.appendChild(fallback);
+                      e.currentTarget.parentNode.appendChild(fallback);
                     }}
                   />
                 </div>
-                
+
                 {/* Sport Name */}
                 <h3 className="text-lg font-bold text-white text-center drop-shadow-lg group-hover:text-xl transition-all duration-300">
                   {sport.name}
@@ -253,18 +250,18 @@ export default function Sports() {
             </motion.div>
           ))}
         </div>
-
       </motion.section>
+
       {/* Classification System */}
-      <motion.section 
-        className="max-w-6xl mx-auto px-4 py-16"
+      <motion.section
+        className="max-w-6xl mx-auto px-2 py-16"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <motion.h2 
-          className="text-3xl md:text-4xl font-bold mb-4 text-center" 
+        <motion.h2
+          className="text-3xl md:text-4xl font-bold mb-4 text-center"
           style={{ color: 'var(--primary)' }}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -273,7 +270,7 @@ export default function Sports() {
         >
           Classification System
         </motion.h2>
-        <motion.p 
+        <motion.p
           className="text-lg text-[var(--text)] text-center mb-12 max-w-3xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -286,20 +283,27 @@ export default function Sports() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {classifications.map((group, idx) => (
             <div key={group.group} className="bg-white rounded-lg p-6 shadow-sm border border-gray-100">
-              <h3 className="text-xl font-bold mb-4 text-gray-900 border-b pb-2" style={{ borderColor: 'var(--primary)', opacity: 0.7 }}>
+              <h3
+                className="text-xl font-bold mb-4 text-gray-900 border-b pb-2"
+                style={{ borderColor: 'var(--primary)', opacity: 0.7 }}
+              >
                 {group.group}
               </h3>
               <div className="space-y-3">
                 {group.codes.map((c) => (
-                  <div key={c.code} className="flex items-start gap-3 p-3 bg-gray-50 rounded-md hover:bg-gray-100 transition-colors">
-                    <span className="font-bold text-sm px-3 py-1 rounded-md flex-shrink-0 text-white" style={{ backgroundColor: 'var(--accent)', opacity: 0.8 }}>
+                  <div
+                    key={c.code}
+                    className="flex items-start gap-3 p-3 bg-gray-50 rounded-md hover:bg-gray-100 transition-colors"
+                  >
+                    <span
+                      className="font-bold text-sm px-3 py-1 rounded-md flex-shrink-0 text-white"
+                      style={{ backgroundColor: 'var(--accent)', opacity: 0.8 }}
+                    >
                       {c.code}
                     </span>
                     <div className="flex-1 min-w-0">
                       <p className="text-gray-800 text-sm font-medium leading-relaxed">{c.desc}</p>
-                      {c.extra && (
-                        <p className="text-xs text-gray-600 mt-2 leading-relaxed">{c.extra}</p>
-                      )}
+                      {c.extra && <p className="text-xs text-gray-600 mt-2 leading-relaxed">{c.extra}</p>}
                     </div>
                   </div>
                 ))}
@@ -308,16 +312,17 @@ export default function Sports() {
           ))}
         </div>
       </motion.section>
+
       {/* Geographic Coverage Section */}
-      <motion.section 
-        className="max-w-7xl mx-auto px-4 py-16"
+      <motion.section
+        className="max-w-7xl mx-auto px-2 py-16"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <motion.h2 
-          className="text-3xl md:text-4xl font-bold mb-4 text-center" 
+        <motion.h2
+          className="text-3xl md:text-4xl font-bold mb-4 text-center"
           style={{ color: 'var(--primary)' }}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -326,7 +331,7 @@ export default function Sports() {
         >
           Geographic Coverage
         </motion.h2>
-        <motion.p 
+        <motion.p
           className="text-lg text-[var(--text)] text-center mb-12 max-w-3xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -347,22 +352,20 @@ export default function Sports() {
               transition={{ duration: 0.6, delay: idx * 0.1 }}
               viewport={{ once: true }}
             >
-              <div 
+              <div
                 className="w-16 h-16 rounded-full flex items-center justify-center text-white text-xl font-bold mb-3 mx-auto"
                 style={{ backgroundColor: 'var(--primary)' }}
               >
                 {zone.districts.length}
               </div>
-              <h3 className="font-bold mb-1 text-gray-800">
-                {zone.name}
-              </h3>
+              <h3 className="font-bold mb-1 text-gray-800">{zone.name}</h3>
               <p className="text-sm text-gray-600">{zone.districts.length} Districts</p>
             </motion.div>
           ))}
         </div>
 
         {/* District Distribution */}
-        <motion.div 
+        <motion.div
           className="mb-12"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -372,9 +375,9 @@ export default function Sports() {
           <h3 className="text-xl font-bold mb-6 text-center" style={{ color: 'var(--primary)' }}>
             District Distribution by Zone
           </h3>
-          
+
           <div className="space-y-4">
-            {zones.map((zone, idx) => {
+            {zones.map((zone) => {
               const percentage = (zone.districts.length / 33) * 100;
               return (
                 <div key={zone.name} className="space-y-2">
@@ -385,11 +388,11 @@ export default function Sports() {
                     </span>
                   </div>
                   <div className="relative h-3 bg-gray-200 rounded-full overflow-hidden">
-                    <div 
+                    <div
                       className="h-full rounded-full transition-all duration-1000 ease-out"
-                      style={{ 
+                      style={{
                         width: `${percentage}%`,
-                        backgroundColor: 'var(--primary)'
+                        backgroundColor: 'var(--primary)',
                       }}
                     />
                   </div>
@@ -400,7 +403,7 @@ export default function Sports() {
         </motion.div>
 
         {/* Summary Statistics */}
-        <motion.div 
+        <motion.div
           className="bg-white rounded-xl shadow-lg p-6 border border-gray-200"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -412,34 +415,43 @@ export default function Sports() {
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             <div className="text-center">
-              <div className="text-2xl font-bold mb-1" style={{ color: 'var(--accent)' }}>4</div>
+              <div className="text-2xl font-bold mb-1" style={{ color: 'var(--accent)' }}>
+                4
+              </div>
               <div className="text-sm text-gray-600">Total Zones</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold mb-1" style={{ color: 'var(--accent)' }}>33</div>
+              <div className="text-2xl font-bold mb-1" style={{ color: 'var(--accent)' }}>
+                33
+              </div>
               <div className="text-sm text-gray-600">Districts Covered</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold mb-1" style={{ color: 'var(--accent)' }}>19</div>
+              <div className="text-2xl font-bold mb-1" style={{ color: 'var(--accent)' }}>
+                19
+              </div>
               <div className="text-sm text-gray-600">Sports Offered</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold mb-1" style={{ color: 'var(--accent)' }}>4</div>
+              <div className="text-2xl font-bold mb-1" style={{ color: 'var(--accent)' }}>
+                4
+              </div>
               <div className="text-sm text-gray-600">Training Centers</div>
             </div>
           </div>
         </motion.div>
       </motion.section>
+
       {/* Competition Levels Section */}
-      <motion.section 
-        className="max-w-6xl mx-auto px-4 py-16"
+      <motion.section
+        className="max-w-6xl mx-auto px-2 py-16"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <motion.h2 
-          className="text-3xl md:text-4xl font-bold mb-4 text-center" 
+        <motion.h2
+          className="text-3xl md:text-4xl font-bold mb-4 text-center"
           style={{ color: 'var(--primary)' }}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -448,7 +460,7 @@ export default function Sports() {
         >
           Competition Levels
         </motion.h2>
-        <motion.p 
+        <motion.p
           className="text-lg text-[var(--text)] text-center mb-12 max-w-3xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -457,22 +469,22 @@ export default function Sports() {
         >
           Our athletes compete at various levels from local championships to international events
         </motion.p>
-        
+
         <div className="relative">
           {/* Central Timeline Line */}
-          <motion.div 
-            className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full" 
+          <motion.div
+            className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full"
             style={{ backgroundColor: 'var(--primary)', opacity: 0.3 }}
             initial={{ scaleY: 0 }}
             whileInView={{ scaleY: 1 }}
-            transition={{ duration: 1.5, ease: "easeOut" }}
+            transition={{ duration: 1.5, ease: 'easeOut' }}
             viewport={{ once: true }}
           />
-          
+
           <div className="space-y-16">
             {competitionLevels.map((level, idx) => (
-              <motion.div 
-                key={level.level} 
+              <motion.div
+                key={level.level}
                 className="relative"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -480,23 +492,23 @@ export default function Sports() {
                 viewport={{ once: true }}
               >
                 {/* Level Circle */}
-                <motion.div 
-                  className="absolute left-1/2 transform -translate-x-1/2 w-12 h-12 rounded-full border-4 border-white shadow-md flex items-center justify-center" 
+                <motion.div
+                  className="absolute left-1/2 transform -translate-x-1/2 w-12 h-12 rounded-full border-4 border-white shadow-md flex items-center justify-center"
                   style={{ backgroundColor: 'var(--primary)' }}
                   initial={{ scale: 0, rotate: -180 }}
                   whileInView={{ scale: 1, rotate: 0 }}
-                  transition={{ duration: 0.6, delay: idx * 0.2 + 0.3, type: "spring", stiffness: 200 }}
+                  transition={{ duration: 0.6, delay: idx * 0.2 + 0.3, type: 'spring', stiffness: 200 }}
                   viewport={{ once: true }}
                   whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
                 >
                   <span className="text-white text-sm font-bold">{idx + 1}</span>
                 </motion.div>
-                
+
                 {/* Content */}
                 <div className={`flex flex-col sm:flex-row items-center ${idx % 2 === 0 ? 'sm:flex-row' : 'sm:flex-row-reverse'}`}>
                   <div className="w-full sm:w-5/12 px-0 sm:px-12 text-left">
-                    <motion.h3 
-                      className="text-lg sm:text-2xl font-bold mb-4" 
+                    <motion.h3
+                      className="text-lg sm:text-2xl font-bold mb-4"
                       style={{ color: 'var(--primary)' }}
                       initial={{ opacity: 0, x: idx % 2 === 0 ? -30 : 30 }}
                       whileInView={{ opacity: 1, x: 0 }}
@@ -507,8 +519,8 @@ export default function Sports() {
                     </motion.h3>
                     <div className="space-y-3">
                       {level.competitions.map((c, compIdx) => (
-                        <motion.div 
-                          key={c.name} 
+                        <motion.div
+                          key={c.name}
                           className={`flex items-start gap-3 ${idx % 2 === 0 ? 'justify-start' : 'justify-end'} sm:justify-start`}
                           initial={{ opacity: 0, x: idx % 2 === 0 ? 30 : -30 }}
                           whileInView={{ opacity: 1, x: 0 }}
@@ -516,8 +528,8 @@ export default function Sports() {
                           viewport={{ once: true }}
                           whileHover={{ x: 0, transition: { duration: 0.2 } }}
                         >
-                          <motion.span 
-                            className="font-bold text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-full text-white flex-shrink-0" 
+                          <motion.span
+                            className="font-bold text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-full text-white flex-shrink-0"
                             style={{ backgroundColor: 'var(--accent)' }}
                             whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
                           >
@@ -536,7 +548,6 @@ export default function Sports() {
           </div>
         </div>
       </motion.section>
-
     </main>
   );
-} 
+}

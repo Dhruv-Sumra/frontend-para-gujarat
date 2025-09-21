@@ -58,7 +58,7 @@ const PSAGAthletes = () => {
       <div className="flex-1">
         {/* Hero Section */}
         <motion.div 
-          className="bg-[var(--primary)] text-[var(--card-title)] py-20 px-4 flex items-center justify-center text-center relative overflow-hidden min-h-[260px]"
+          className="bg-[var(--primary)] text-[var(--card-title)] py-20 px-2 flex items-center justify-center text-center relative overflow-hidden min-h-[260px]"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -78,7 +78,7 @@ const PSAGAthletes = () => {
 
         {/* Champions Gallery */}
         <motion.div 
-          className="max-w-6xl mx-auto px-4 py-16"
+          className="max-w-6xl mx-auto px-2 py-16"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -175,7 +175,7 @@ const PSAGAthletes = () => {
         </motion.div>
 
         {/* Athlete Achievement & Interview Videos */}
-        <section className="max-w-6xl mx-auto px-4 py-12">
+        <section className="max-w-6xl mx-auto px-2 py-12">
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 text-[var(--primary)]">
             Athlete Achievements & Glorious Interviews
           </h2>
@@ -247,7 +247,7 @@ const PSAGAthletes = () => {
         </section>
 
         {/* Gujarat Para Athletes - World Class Champions Section and onward */}
-        <div className="max-w-6xl mx-auto px-4 py-20 motion-safe:animate-fadeInUp">
+        <div className="max-w-6xl mx-auto px-2 py-20 motion-safe:animate-fadeInUp">
           <h1 className="text-4xl md:text-5xl font-extrabold mb-12 text-center tracking-tight text-[var(--primary)] leading-tight">
             Gujarat Para Athletes <span className="text-[var(--accent)]">World Class Champions</span>
           </h1>
@@ -438,7 +438,7 @@ const PSAGAthletes = () => {
         </div>
 
         {/* Support Programs */}
-        <div className="max-w-6xl mx-auto px-4 py-12">
+        <div className="max-w-6xl mx-auto px-2 py-12">
           <h2 className="text-3xl font-bold text-center text-[#000080] mb-12">
             Our <span className="text-[#FF9933]">Support System</span>
           </h2>
@@ -468,7 +468,7 @@ const PSAGAthletes = () => {
         </div>
 
         {/* --- Advanced Athlete Hub Sections --- */}
-        <div className="max-w-6xl mx-auto px-4 py-12 mt-8 space-y-16">
+        <div className="max-w-6xl mx-auto px-2 py-12 mt-8 space-y-16">
           {/* Rising Stars Section */}
           <section>
             <h2 className="text-2xl font-bold mb-4 border-l-4 pl-3" style={{ color: 'var(--primary)', borderColor: 'var(--accent)' }}>Rising Stars – New Talent Pipeline</h2>
@@ -556,7 +556,7 @@ const PSAGAthletes = () => {
         </div>
       </div>
       {/* Call to Action */}
-      <div className="bg-[#000080] text-white py-16 px-4 text-center mt-16">
+              <div className="bg-[#000080] text-white py-16 px-2 text-center mt-16">
         <div className="max-w-2xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">
             Ready to Join Gujarat's Para Sports Movement?

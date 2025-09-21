@@ -1,7 +1,9 @@
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { LanguageProvider } from './contexts/LanguageContext';
 import Navbar from './components/Navbar';
 import PSAGFooter from "./components/PSAGFooter";
+import Spinner from './components/Spinner';
 import Donate from './pages/Donate';
 
 const Home = lazy(() => import('./pages/Home'));
@@ -19,6 +21,8 @@ const PlayerRegistrationSuccess = lazy(() => import('./pages/PlayerRegistrationS
 const PlayerManagement = lazy(() => import('./pages/PlayerManagement'));
 const IdCardSearch = lazy(() => import('./pages/IdCardSearch'));
 const Dashboard = lazy(() => import('./pages/Dashboard'));
+const UserRegistration = lazy(() => import('./pages/UserRegistration'));
+const Login = lazy(() => import('./pages/Login'));
 
 // ErrorBoundary component
 class ErrorBoundary extends React.Component {
@@ -49,7 +53,7 @@ class ErrorBoundary extends React.Component {
 
 function Placeholder({ title }) {
   return (
-    <main className="container mx-auto px-4 py-12">
+    <main className="container mx-auto px-2 py-12">
       <h1 className="text-3xl font-bold text-primary-600 mb-4">{title}</h1>
       <p className="text-gray-600">Content coming soon...</p>
     </main>
@@ -67,12 +71,12 @@ function ScrollToTop() {
 
 export default function App() {
   return (
-    <>
+    <LanguageProvider>
       <Router>
         <ScrollToTop />
         <Navbar />
         <ErrorBoundary>
-          <Suspense fallback={<div className="min-h-screen flex items-center justify-center text-2xl text-[var(--primary)]">Loading...</div>}>
+          <Suspense fallback={<Spinner isLoading={true} />}>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<AboutUs />} />
@@ -86,6 +90,7 @@ export default function App() {
               <Route path="/send-email" element={<SendEmail />} />
               <Route path="/register" element={<PlayerRegistration />} />
               <Route path="/register/success" element={<PlayerRegistrationSuccess />} />
+              <Route path="/user/register" element={<UserRegistration />} />
               <Route path="/players" element={<PlayerManagement />} />
               <Route path="/idcard" element={<IdCardSearch />} />
               <Route path="/dashboard" element={<Dashboard />} />
@@ -94,9 +99,8 @@ export default function App() {
             </Routes>
           </Suspense>
         </ErrorBoundary>
+        <PSAGFooter />
       </Router>
-      {/* Footer */}
-      <PSAGFooter />
-    </>
+    </LanguageProvider>
   );
 } 

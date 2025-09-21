@@ -74,7 +74,7 @@ export default function SendEmail() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <div className="max-w-4xl mx-auto px-4 py-12">
+        <div className="max-w-4xl mx-auto px-2 py-12">
           <div className="text-center">
             <Link 
               to="/contact" 
@@ -103,7 +103,7 @@ export default function SendEmail() {
         </div>
       </motion.div>
 
-      <div className="max-w-2xl mx-auto px-4 py-16">
+              <div className="max-w-2xl mx-auto px-2 py-16">
         <motion.div 
           className="bg-white rounded-xl shadow-sm border border-gray-200 p-8"
           initial={{ opacity: 0, y: 50 }}

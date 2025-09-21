@@ -71,7 +71,7 @@ export default function News() {
         </p>
       </div>
       {/* Featured News */}
-      <div className="max-w-4xl mx-auto px-4 py-10">
+      <div className="max-w-4xl mx-auto px-2 py-10">
         <div className="bg-[var(--card)] rounded-2xl shadow-lg p-0 border border-[var(--card-border)] mb-10 overflow-hidden">
           <img src="https://media.assettype.com/outlookindia/2024-05/45214a6d-e3eb-4c5d-9ca2-2ad9ec580f6f/World_Para_Athletics_Championships_India_Javelin_X_SAI_media.jpg?w=1200&amp;ar=40:21&amp;auto=format%2Ccompress&amp;ogImage=true&amp;mode=crop&amp;enlarge=true&amp;overlay=false&amp;overlay_position=bottom&amp;overlay_width=100" alt="Featured News" className="w-full h-90 object-cover" />
           <div className="p-6">

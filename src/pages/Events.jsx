@@ -287,7 +287,7 @@ export default function Events() {
       `}</style>
 
       {/* Hero Section */}
-      <section className="w-full py-20 px-4 hero-gradient animate-fadeIn">
+      <section className="w-full py-20 px-2 hero-gradient animate-fadeIn">
         <div className="max-w-6xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             <span className="text-[var(--accent)]">Events</span> <span className="text-[var(--primary)]">& Achievements</span>
@@ -299,7 +299,7 @@ export default function Events() {
       </section>
 
       {/* Events Grid */}
-      <section className="py-16 px-4">
+      <section className="py-16 px-2">
         <div className="max-w-6xl mx-auto">
           <div className="mb-12 text-center">
             <h2 className="text-3xl font-bold text-[var(--primary)]">
@@ -421,7 +421,7 @@ export default function Events() {
       </section>
 
       {/* Programs Section */}
-      <section className="py-16 px-4 bg-[var(--card)]">
+      <section className="py-16 px-2 bg-[var(--card)]">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-[var(--primary)] mb-12 text-center">
             Ongoing Programs & Initiatives

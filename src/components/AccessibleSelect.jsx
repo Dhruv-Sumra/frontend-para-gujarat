@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { ChevronDown, Check, Search, X } from 'lucide-react';
+import toast from 'react-hot-toast';
 
 const AccessibleSelect = React.forwardRef(({
   label,
@@ -68,27 +69,40 @@ const AccessibleSelect = React.forwardRef(({
   const filteredOptions = options;
 
   const handleSelect = (option) => {
-    if (!option) return; // Guard against undefined option
-    
-    setSelectedOption(option);
-    setIsOpen(false);
-    
-    // Call onChange with the selected option
-    if (onChange) {
-      onChange(option);
+    if (!option) {
+      toast.error('Invalid option selected');
+      return;
     }
-    if (speak && option.label) {
-      speak(option.label);
+    
+    try {
+      setSelectedOption(option);
+      setIsOpen(false);
+      
+      // Call onChange with the selected option
+      if (onChange) {
+        onChange(option);
+      }
+      if (speak && option.label) {
+        speak(option.label);
+      }
+      toast.success('Option selected successfully');
+    } catch (error) {
+      toast.error(error.message || 'Failed to select option');
     }
   };
 
   const handleClear = (e) => {
-    e.stopPropagation();
-    setSelectedOption(null);
-    
-    // Call onChange with null when clearing
-    if (onChange) {
-      onChange(null);
+    try {
+      e.stopPropagation();
+      setSelectedOption(null);
+      
+      // Call onChange with null when clearing
+      if (onChange) {
+        onChange(null);
+      }
+      toast.success('Selection cleared');
+    } catch (error) {
+      toast.error('Failed to clear selection');
     }
   };
 
@@ -132,90 +146,42 @@ const AccessibleSelect = React.forwardRef(({
       )}
       
       <div className="relative">
-        <button
-          type="button"
-          ref={ref}
-          onClick={() => {
-            setIsOpen(!isOpen);
-            if (speakField && label) speakField(label);
+        <div 
+          role="button"
+          tabIndex={0}
+          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          onClick={() => setIsOpen(!isOpen)}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              setIsOpen(!isOpen);
+            }
           }}
-          onFocus={e => {
-            speakField && speakField(label);
-            selectProps.onFocus && selectProps.onFocus(e);
-          }}
-          onKeyDown={handleKeyDown}
-          aria-haspopup="listbox"
-          aria-expanded={isOpen}
-          aria-describedby={error ? `${props.id || 'select'}-error` : undefined}
-          className={`w-full flex items-center justify-between px-3 py-2 border rounded-md bg-white text-left transition-all duration-200 ${
-            error 
-              ? 'border-red-500 focus:border-red-500 focus:ring-red-500' 
-              : 'border-gray-300 focus:border-blue-500 focus:ring-blue-500'
-          } focus:outline-none focus:ring-2 focus:ring-opacity-50 hover:border-gray-400 ${
-            isOpen ? 'ring-2 ring-blue-500 ring-opacity-50' : ''
-          }`}
-          {...selectProps}
         >
-          <span className={`flex-1 ${selectedOption ? 'text-gray-900' : 'text-gray-500'}`}>
-            {selectedOption ? selectedOption.label : placeholder}
-          </span>
-          <div className="flex items-center gap-2">
-            {isClearable && selectedOption && (
-              <button
-                type="button"
-                onClick={handleClear}
-                className="p-1 hover:bg-gray-100 rounded-full transition-colors"
-                aria-label="Clear selection"
-              >
-                <X size={14} className="text-gray-400" />
-              </button>
-            )}
-            <ChevronDown 
-              size={16} 
-              className={`text-gray-400 transition-transform duration-200 ${
-                isOpen ? 'rotate-180' : ''
-              }`} 
-            />
-          </div>
-        </button>
-
+          {selectedOption ? selectedOption.label : placeholder}
+        </div>
         {isOpen && (
-          <div className="fixed z-[9999] bg-white border border-gray-200 rounded-md shadow-lg max-h-60 overflow-hidden"
-          style={{
-            width: Math.min(dropdownRef.current?.offsetWidth || 300, window.innerWidth - 32),
-            left: Math.max(16, Math.min(
-              dropdownRef.current?.getBoundingClientRect().left || 0,
-              window.innerWidth - (dropdownRef.current?.offsetWidth || 300) - 16
-            )),
-            top: (dropdownRef.current?.getBoundingClientRect().bottom || 0) + 2
-          }}>
-            
-            <div className="max-h-48 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
-              {filteredOptions.length > 0 ? (
-                filteredOptions.map((option, index) => (
-                  <button
-                    key={option.value}
-                    type="button"
-                    onClick={() => handleSelect(option)}
-                    onMouseEnter={() => setFocusedIndex(index)}
-                    className={`w-full flex items-center justify-between px-3 py-2 text-left hover:bg-blue-50 transition-colors ${
-                      focusedIndex === index ? 'bg-blue-50' : ''
-                    } ${
-                      selectedOption?.value === option.value ? 'bg-blue-100 text-blue-900' : 'text-gray-900'
-                    }`}
-                  >
-                    <span className="flex-1 truncate">{option.label}</span>
-                    {selectedOption?.value === option.value && (
-                      <Check size={16} className="text-blue-600 flex-shrink-0 ml-2" />
-                    )}
-                  </button>
-                ))
-              ) : (
-                <div className="px-3 py-4 text-center text-gray-500 text-sm">
-                  No options available
-                </div>
-              )}
-            </div>
+          <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg">
+            {options.map((option) => (
+              <div
+                key={option.value}
+                role="option"
+                aria-selected={selectedOption?.value === option.value}
+                className={`px-4 py-2 cursor-pointer hover:bg-gray-100 ${
+                  selectedOption?.value === option.value ? 'bg-blue-50' : ''
+                }`}
+                onClick={() => handleSelect(option)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    handleSelect(option);
+                  }
+                }}
+                tabIndex={0}
+              >
+                {option.label}
+              </div>
+            ))}
           </div>
         )}
       </div>
@@ -231,4 +197,4 @@ const AccessibleSelect = React.forwardRef(({
 
 AccessibleSelect.displayName = 'AccessibleSelect';
 
-export default AccessibleSelect; 
+export default AccessibleSelect;

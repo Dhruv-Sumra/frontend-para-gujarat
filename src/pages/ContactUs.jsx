@@ -198,7 +198,7 @@ export default function ContactUs() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <div className="max-w-6xl mx-auto px-4 py-16">
+        <div className="max-w-6xl mx-auto px-2 py-16">
           <div className="text-center">
             <motion.h1 
               className="text-4xl md:text-5xl font-bold text-[var(--primary)] mb-4"
@@ -220,7 +220,7 @@ export default function ContactUs() {
         </div>
       </motion.div>
 
-      <div className="max-w-6xl mx-auto px-4 py-16">
+              <div className="max-w-6xl mx-auto px-2 py-16">
         {/* Leadership Team */}
         <motion.div 
           className="mb-20"

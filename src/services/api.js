@@ -3,7 +3,7 @@ import toast from 'react-hot-toast';
 
 // Create axios instance with default configuration
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || '/api',
+  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000/api',
   timeout: 30000,
   headers: {
     'Content-Type': 'application/json',
@@ -91,9 +91,16 @@ api.interceptors.response.use(
 // Player API endpoints
 export const playerAPI = {
   // Register a new player
-  register: (formData) => api.post('/players', formData, {
-    headers: { 'Content-Type': 'multipart/form-data' }
-  }),
+  register: (data) => {
+    // If data is FormData, we need to set the correct content type
+    const config = {};
+    if (data instanceof FormData) {
+      config.headers = {
+        'Content-Type': 'multipart/form-data',
+      };
+    }
+    return api.post('/players', data, config);
+  },
   
   // Get all players with pagination and filters
   getAll: (params = {}) => api.get('/players', { params }),
