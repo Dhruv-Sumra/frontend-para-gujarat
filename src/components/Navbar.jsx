@@ -64,7 +64,7 @@ export default function Navbar() {
         }`}
         style={{ borderBottom: scrolled ? '1px solid #ddd' : 'none' }}
       >
-        <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <nav className="container mx-auto px-2">
           <div className="flex items-center justify-between h-12">
             {/* Logo */}
             <Link

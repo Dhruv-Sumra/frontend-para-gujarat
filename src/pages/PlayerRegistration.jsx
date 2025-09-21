@@ -123,7 +123,7 @@ const PlayerRegistration = () => {
       <div className="max-w-4xl mx-auto">
         <div className="bg-white shadow-2xl rounded-3xl overflow-hidden">
           {/* Header */}
-          <div className="bg-gradient-to-r from-blue-600 to-indigo-600 px-4 sm:px-6 lg:px-8 py-6">
+          <div className="bg-gradient-to-r from-blue-600 to-indigo-600 px-8 py-6">
             <div className="flex justify-between items-start">
               <div>
                 <h1 className="text-3xl font-bold text-white flex items-center gap-3">
@@ -139,7 +139,7 @@ const PlayerRegistration = () => {
             </div>
           </div>
 
-          <form onSubmit={handleSubmit(onSubmit)} className="p-4 sm:p-6 lg:p-8 space-y-8">
+          <form onSubmit={handleSubmit(onSubmit)} className="p-8 space-y-8">
             {/* Unique ID Verification */}
             <div className="bg-orange-50 border-l-4 border-orange-500 p-6 rounded-r-lg">
               <div className="flex items-start">

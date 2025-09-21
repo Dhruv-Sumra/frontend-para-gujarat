@@ -83,7 +83,7 @@ function AnimatedStats() {
   const awardeesRef = useCountUp(114, 1200, false, visible);
   return (
     <section ref={sectionRef} className="w-full py-10">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap justify-center gap-8">
+      <div className="container mx-auto px-2 flex flex-wrap justify-center gap-8">
         <div className="flex flex-col items-center bg-[var(--card)] rounded-xl shadow p-6 min-w-[180px]">
           <span ref={athletesRef} className="text-4xl font-extrabold text-[var(--accent)] mb-1"/>
           <span className="text-lg font-semibold text-[var(--text)]">Total Para Athletes</span>
@@ -153,7 +153,7 @@ export default function Home() {
     <>
       {/* Hero Section */}
       <section className="relative py-10 sm:py-16 lg:py-28 overflow-hidden" style={{background: 'linear-gradient(135deg, var(--bg) 0%, var(--card) 100%)', color: 'var(--primary)'}} data-aos="fade-up">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between gap-8 sm:gap-12 relative min-h-[20rem] sm:min-h-[28rem] lg:min-h-[32rem]">
+        <div className="container mx-auto px-1 sm:px-2 flex flex-col lg:flex-row items-center justify-between gap-8 sm:gap-12 relative min-h-[20rem] sm:min-h-[28rem] lg:min-h-[32rem]">
           {/* Hero Text - Center */}
           <div className="flex-1 text-center lg:text-left z-10 flex flex-col justify-center lg:basis-7/12 lg:w-7/12" data-aos="fade-right">
             <h1 className="text-3xl sm:text-5xl md:text-7xl font-extrabold mb-4 sm:mb-8 mt-2 tracking-tight leading-tight max-w-4xl w-full mx-auto lg:mx-0" style={{color: 'var(--primary)'}}>
@@ -180,7 +180,7 @@ export default function Home() {
 
       {/* Mini About Section - Professional, not card */}
       <section className="w-full py-8 sm:py-14" data-aos="fade-up">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+        <div className="container mx-auto px-1 sm:px-2 max-w-6xl">
           <hr className="mb-6 sm:mb-8 border-t-2 border-[var(--accent)] w-16 sm:w-20 mx-auto" />
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[var(--accent)] mb-2 sm:mb-3 tracking-tight text-center">About Para Sports Association of Gujarat</h2>
           <p className="text-base sm:text-lg md:text-xl text-[var(--text)] text-center font-medium">
@@ -210,7 +210,7 @@ export default function Home() {
 
       {/* Gujarat Para Sports Map Section */}
       <section className="w-full py-6 sm:py-10" data-aos="fade-up">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto px-1 sm:px-2">
           <h2 className="text-xl sm:text-3xl font-bold mb-4 sm:mb-6 text-center text-[var(--accent)]">Male and Female Para-Athlets by District (Gujarat)</h2>
           <GujaratMap highlightedDistrict={highlightedDistrict} attachedDistricts={attachedDistricts} />
         </div>
